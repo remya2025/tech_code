@@ -56,12 +56,14 @@ public class TaskManagerDemo {
 	}
     public static Task[] addTask(Scanner scanner) {
       	 if (taskCount < tasks.length) {
-               System.out.print("Enter task Details: ");
-               System.out.print("Enter task Description: ");
+               System.out.println("Enter task Details: ");
+               System.out.println("Enter task Description: ");
                String taskDescription = scanner.nextLine();
-               System.out.print("Enter due date in this format dd-mm-yyyy: ");
+               System.out.println("Enter due date in this format dd-mm-yyyy: ");
                String dueDate = scanner.nextLine();  
-               tasks[taskCount] = new Task(taskDescription,dueDate);
+               System.out.println("Enter task priority: ");
+               int priority = scanner.nextInt();
+               tasks[taskCount] = new Task(taskDescription,dueDate,priority);
                taskCount++;
                System.out.println("taskCount "+taskCount);
                System.out.println("Task added successfully.");
@@ -100,8 +102,10 @@ public class TaskManagerDemo {
         	         System.out.println("No tasks to display.");
         	     } else {
         	         System.out.println("To-Do List:");
+        	         System.out.println( " Description "+ " "+"DueDate"+"         Priority" );
         	         for (int i = 0; i < taskCount; i++) {
-        	             System.out.println((i + 1) + ". " + tasks[i].getDescription()+ " "+tasks[i].getDueDate());
+        	        	
+        	             System.out.println((i + 1) + ". " + tasks[i].getDescription()+ "      "+tasks[i].getDueDate()+"          "+tasks[i].getPriority());
         	         }
         	     }
         		 
